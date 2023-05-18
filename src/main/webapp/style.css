@@ -1,42 +1,73 @@
 body {
-    margin: 0;
-    padding: 0;
+    background-color: #FEFCFB;
 }
 
 header {
     overflow: hidden;
-    width: auto;
-    border-bottom: black 1px solid;
+    /*width: auto;*/
+    height: 74px;
+    border: #03045E 1px solid;
+
     font-family: "Garamond", serif;
+    /*background-color: #90E0EF;*/
 }
 
 header ul {
-    padding: 0 10px 0 10px;
+    margin: 0;
+    padding: 0;
     text-align: center;
     list-style-type: none;
 }
 
-.navbar h1 {
-    margin: 0;
+.navbar > li.nav-item a {
+    padding: 28px 15px;
+    display: inline;
+    width: 8vw;
 }
 
-.navbar > li.nav-item a, button, input {
-    padding: 10px;
+.navbar > li.nav-item button, input {
+    margin: 8px 0;
+    padding: 20px 15px;
+    display: inline;
+    width: auto;
 }
 
+.navbar > li.nav-item button{
+    width: 8vw;
+    background-color: #CAF0F8;
+    border-width: 1px;
+}
 
 .navbar li > a {
     float: left;
+}
+
+.navbar li > a {
+    display: block;
     text-decoration: none;
     color: black;
 }
 
 .navbar li > a:hover {
-    background-color: lightgrey;
+    background-color: #CAF0F8;
 }
 
+li.active a {
+    background-color: #CAF0F8;
+    border-right: 1px black solid;
+    border-left: 1px black solid;
+}
 
 .navbar-right {
     float: right;
 }
 
+.navbar {
+    position: relative;
+}
+
+.nav-logo-item img {
+    position: absolute;
+    display: block;
+    margin-left: calc((100% - 75px) / 2);;
+}
