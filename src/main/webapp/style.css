@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    overflow: hidden;
+    width: auto;
+    border-bottom: black 1px solid;
+    font-family: "Garamond", serif;
+}
+
+header ul {
+    padding: 0 10px 0 10px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.navbar > li.nav-item a, button, input {
+    padding: 10px;
+}
+
+
+.navbar li > a {
+    float: left;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar li > a:hover {
+    background-color: lightgrey;
+}
+
+
+.navbar-right {
+    float: right;
+}
+
