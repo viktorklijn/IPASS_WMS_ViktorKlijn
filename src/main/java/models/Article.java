@@ -10,4 +10,12 @@ public class Article {
 
 
     }
+
+    public Manufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
 }

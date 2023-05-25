@@ -12,4 +12,8 @@ public class Role {
     public String getName() {
         return name;
     }
+
+    public int getId() {
+        return id;
+    }
 }

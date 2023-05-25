@@ -8,4 +8,16 @@ public class Manufacturer {
         this.country = country;
         this.email = email;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
