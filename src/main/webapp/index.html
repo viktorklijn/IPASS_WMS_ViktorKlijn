@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add new article.</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<header>
+  <nav>
+    <ul class="navbar">
+      <li class="nav-logo-item">
+        <img src="../assets/images/IPASS-WMS-LOGO.png" alt="WarehouseManagementSystem Logo." width="75px">
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <h1>Login</h1>
+  <div class="loginForm">
+    <div class="formBorder">
+      <form action="" method="post">
+        <div class="container">
+          <div class="div1">
+            <label for="usernameInput">Username:</label>
+          </div>
+          <div class="div2">
+            <input type="text" name="username" placeholder="username" id="usernameInput" required>
+          </div>
+          <div class="div3">
+            <label for="passwordInput">Password:</label>
+          </div>
+          <div class="div4">
+            <input type="password" name="password" placeholder="password" id="passwordInput" required>
+          </div>
+          <div class="div5">
+            <input type="button" value="Login" id="loginButton" onclick="login()">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+  // function login() {
+  //   let formData = new FormData(document.querySelector(".loginForm form"));
+  //   let jsonBody = {};
+  //
+  //   formData.forEach((value, key) => (jsonBody[key] = value));
+  //
+  //   fetch("/v1/login/authenticate", {
+  //     method: "POST",
+  //     body: JSON.stringify(jsonBody),
+  //     headers: new Headers({ "content-type": "application/json" }),
+  //   })
+  //           .then((response) => {
+  //             if (response.ok) return response.json();
+  //             else throw "Wrong username/password!";
+  //           })
+  //           .then((json) => {
+  //             window.sessionStorage.setItem("WMSToken", json.JWT);
+  //             window.sessionStorage.setItem("username", verifyToken(json.JWT));
+  //             location.assign("/overview.html");
+  //           })
+  //           .catch((error) => console.log(error));
+  // }
+  document.addEventListener("DOMContentLoaded", () => {
+    const BUTTON = document.getElementById("loginButton");
+    BUTTON.addEventListener("click", () => login());
+  })
+</script>
+
+</body>
+</html>
