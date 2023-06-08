@@ -1,4 +1,4 @@
-package models;
+package nl.hu.ipass.viktorklijn.system.models;
 
 public class Role {
     private String name;
@@ -11,5 +11,9 @@ public class Role {
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
     }
 }
