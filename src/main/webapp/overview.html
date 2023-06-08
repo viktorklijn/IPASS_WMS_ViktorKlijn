@@ -1,9 +1,12 @@
+<!--TODO: logboek voor af en bijboekingen van voorraad per product-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add new article.</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./app.js"></script>
+
 </head>
 <body>
     <header>
@@ -11,7 +14,7 @@
             <ul class="navbar">
                 <li class="nav-logo-item">
 <!--                    <h1>Logo</h1>-->
-                    <img src="../assets/images/IPASS-WMS-LOGO.png" alt="WarehouseManagementSystem Logo." width="75px">
+                    <img src="/assets/images/IPASS-WMS-LOGO.png" alt="WarehouseManagementSystem Logo." width="75px">
                 </li>
                 <li class="nav-item">
                     <a href="#">Home</a>
@@ -64,48 +67,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        Vaatdoek
-                    </td>
-                    <td>
-                        Humdakin
-                    </td>
-                    <td>
-                        Stof
-                    </td>
-                    <td>
-                        20 Euro
-                    </td>
-                    <td>
-                        <img src="https://barcodeapi.org/api/auto/5449000008046" alt="Barcode: 5449000008046" height="100vh">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        Pepermolen
-                    </td>
-                    <td>
-                        WeDoWood
-                    </td>
-                    <td>
-                        Keuken
-                    </td>
-                    <td>
-                        44,50 Euro
-                    </td>
-                    <td>
-                        <img src="https://barcodeapi.org/api/auto/1256436" alt="Barcode: 1256436" height="100vh">
-                    </td>
-                </tr>
+
             </tbody>
         </table>
     </main>
+
+    <template id="table-template">
+        <tr id="table-row">
+            <td class="product-number"></td>
+            <td class="product-name"></td>
+            <td class="product-manufacturer"></td>
+            <td class="product-category"></td>
+            <td class="product-price"></td>
+            <td class="product-barcode"></td>
+        </tr>
+    </template>
+
 </body>
 </html>
