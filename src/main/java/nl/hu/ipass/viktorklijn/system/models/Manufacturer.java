@@ -1,4 +1,4 @@
-package models;
+package nl.hu.ipass.viktorklijn.system.models;
 
 public class Manufacturer {
     private String name, country, email;
@@ -7,5 +7,17 @@ public class Manufacturer {
         this.name = name;
         this.country = country;
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
