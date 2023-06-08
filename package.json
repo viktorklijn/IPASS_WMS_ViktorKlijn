@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "quagga": "^0.12.1"
+    "quagga": "^0.12.1",
+    "vite": "^4.3.9"
   },
   "devDependencies": {
     "html5-qrcode": "^2.3.8"
