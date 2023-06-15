@@ -3,7 +3,7 @@
  *
  * @param {String} token
  */
-function verifyToken(token) {
+export function verifyToken(token) {
           return fetch("http://localhost:8080/v1/login/verify", {
             method: "POST",
             body: JSON.stringify({"token": token}),
@@ -13,4 +13,3 @@ function verifyToken(token) {
               .then((data) => data.username);
 }
 
-export {verifyToken};
