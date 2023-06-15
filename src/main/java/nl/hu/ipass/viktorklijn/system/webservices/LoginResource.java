@@ -13,10 +13,11 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.AbstractMap;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 @Path("/login")
 public class LoginResource {
@@ -24,16 +25,15 @@ public class LoginResource {
 
     @POST
     @Path("/authenticate")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    @Consumes("application/json")
     public Response checkLogin(LoginRequest loginRequest) {
         try {
-            Role role = User.validateUser(loginRequest.username, loginRequest.password);
+            Role role = User.validateUser(loginRequest.getUsername(), loginRequest.getPassword());
 
             if (role == null) throw new IllegalArgumentException("No user found!");
 
-            String token = createToken(loginRequest.username, role.getName());
-            System.out.println(token);
+            String token = createToken(loginRequest.getUsername(), role.getName());
 
             return Response.ok(new AbstractMap.SimpleEntry<>("JWT", token)).build();
         } catch (JwtException | IllegalArgumentException e) {
@@ -47,22 +47,21 @@ public class LoginResource {
     @Consumes("application/json")
     public Response verifyToken(VerificationToken verificationToken) {
         try {
+            Map<String, String> response = new HashMap<>();
+
             var jwt = Jwts.parser()
                     .setSigningKey(key)
-                    .parseClaimsJws(verificationToken.token);
+                    .parseClaimsJws(verificationToken.token)
+                    .getBody();
 
-            String username = jwt.getBody().getSubject();
+            String username = jwt.getSubject();
 
-            User user = User.getUser(username);
-            if (user != null) {
-                return Response.ok(User.getUser(username)).build();
 
-            }
+            response.put("username", username);
+            return Response.ok(response).build();
         } catch (JwtException e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
-
         }
-        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     private String createToken(String username, String role) {
