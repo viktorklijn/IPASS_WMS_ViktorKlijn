@@ -19,9 +19,11 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import static nl.hu.ipass.viktorklijn.utils.JwtUtil.verifyToken;
+
 @Path("/login")
 public class LoginResource {
-    public static SecretKeySpec key = new SecretKeySpec("dikkekey".getBytes(), SignatureAlgorithm.HS512.getJcaName());
+    public static SecretKeySpec key = new SecretKeySpec("WMSKeyHU".getBytes(), SignatureAlgorithm.HS512.getJcaName());
 
     @POST
     @Path("/authenticate")
@@ -45,19 +47,9 @@ public class LoginResource {
     @Path("/verify")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response verifyToken(VerificationToken verificationToken) {
+    public Response tokenVerification(VerificationToken verificationToken) {
         try {
-            Map<String, String> response = new HashMap<>();
-
-            var jwt = Jwts.parser()
-                    .setSigningKey(key)
-                    .parseClaimsJws(verificationToken.token)
-                    .getBody();
-
-            String username = jwt.getSubject();
-
-
-            response.put("username", username);
+            Map<String, String> response = verifyToken(verificationToken);
             return Response.ok(response).build();
         } catch (JwtException e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
@@ -75,4 +67,6 @@ public class LoginResource {
                 .signWith(SignatureAlgorithm.HS512, key)
                 .compact();
     }
+
+
 }
