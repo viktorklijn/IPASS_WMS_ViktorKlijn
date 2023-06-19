@@ -22,4 +22,9 @@ export function login() {
         .catch(error => console.log(error));
 }
 
+export function logout() {
+    window.sessionStorage.clear();
+    location.assign("index.html");
+}
+
 
