@@ -1,9 +1,17 @@
 import './authentication.js';
+import {login, logout} from "./service/LoginService.js";
 import './view/TableResource.js';
-import {login} from "./service/LoginService.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const BUTTON = document.getElementById("loginButton");
-    BUTTON.addEventListener("click", () => login());
+    const LOGINBUTTON = document.getElementById("loginButton");
+    LOGINBUTTON.addEventListener("click", () => login());
+
 })
+document.addEventListener("DOMContentLoaded", () => {
+    const LOGOUTBUTTON = document.getElementById("logoutButton");
+    LOGOUTBUTTON.addEventListener("click", () => logout());
+
+})
+
+
 
