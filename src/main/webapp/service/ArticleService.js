@@ -7,7 +7,8 @@ export default class articleService {
      */
     static getArticles() {
         const url = `${baseURL}/dashboard/articles/`;
-        return fetch(url)
+        console.log(JSON.stringify({"token": sessionStorage.getItem("WMSToken")}))
+        return fetch(url, {method: "POST", body: JSON.stringify({"token": sessionStorage.getItem("WMSToken")}), headers: {'Content-Type': 'application/json' }})
             .then((response) => response.json());
     }
 }
