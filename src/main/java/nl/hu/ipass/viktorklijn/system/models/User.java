@@ -1,6 +1,7 @@
 package nl.hu.ipass.viktorklijn.system.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import nl.hu.ipass.viktorklijn.system.webservices.DashboardResource;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -12,13 +13,15 @@ public class User {
     private int id;
     private Role role;
     private static ArrayList<User> users = new ArrayList<>();
+    private Shop shop;
 
-    public User(String username, String email, String password, int id, Role role) {
+    public User(String username, String email, String password, int id, Role role, Shop shop) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.id = id;
         this.role = role;
+        this.shop = shop;
         users.add(this);
     }
 
@@ -70,5 +73,9 @@ public class User {
 
     public Role getRole() {
         return role;
+    }
+
+    public Shop getShop() {
+        return shop;
     }
 }

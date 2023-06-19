@@ -4,17 +4,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop implements Serializable {
+public class Shop{
     private String name;
     private static ArrayList<Shop> shops = new ArrayList<>();
-    private static ArrayList<Article> articles = new ArrayList<>();
+    private ArrayList<Article> articles;
 
     public Shop(String name) {
         this.name = name;
+        articles = new ArrayList<>();
         shops.add(this);
     }
 
-    public static void setArticles(ArrayList<Article> newArticles) {
+    public void setArticles(ArrayList<Article> newArticles) {
         articles = newArticles;
     }
 
@@ -30,7 +31,7 @@ public class Shop implements Serializable {
         articles.add(article);
     }
 
-    public static ArrayList<Article> getArticles() {
+    public ArrayList<Article> getArticles() {
         return articles;
     }
 }
