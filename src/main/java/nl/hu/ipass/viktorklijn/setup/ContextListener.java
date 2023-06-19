@@ -28,7 +28,7 @@ public class ContextListener implements ServletContextListener {
         s1.addArticle(a3);
 
         Role r1 = new Role("admin", 1);
-        User u1 = new User("Viktor", "test@test.com", "pass", 12, r1);
+        User u1 = new User("Viktor", "test@test.com", "pass", 12, r1, s1);
 
         saveData();
 

@@ -19,12 +19,12 @@ switch (location.pathname) {
         if (token === null) {
             location.assign("/index.html")
         }
-        else {
-            if (!username) {
-                window.sessionStorage.clear();
-                location.assign("/index.html");
-            }
-        }
+        // else {
+        //     if (!username) {
+        //         window.sessionStorage.clear();
+        //         location.assign("/index.html");
+        //     }
+        // }
         break;
     case "":
     case "/":
