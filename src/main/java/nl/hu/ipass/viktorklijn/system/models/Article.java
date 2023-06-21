@@ -8,6 +8,7 @@ public class Article {
     private Category category;
     private Double price;
     private int barcode;
+    private int stock;
 
     public Article(int anr, String nm, String desc, Manufacturer manu, Category cate ,Double pr, int bc) {
         this.articleNumber = anr;
@@ -17,6 +18,17 @@ public class Article {
         this.category = cate;
         this.price = pr;
         this.barcode = bc;
+        this.stock = 0;
+    }
+    public Article(int anr, String nm, String desc, Manufacturer manu, Category cate ,Double pr, int bc, int stock) {
+        this.articleNumber = anr;
+        this.name = nm;
+        this.description = desc;
+        this.manufacturer = manu;
+        this.category = cate;
+        this.price = pr;
+        this.barcode = bc;
+        this.stock = stock;
     }
 
     public Manufacturer getManufacturer() {
@@ -45,5 +57,13 @@ public class Article {
 
     public int getBarcode() {
         return barcode;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }
