@@ -9,79 +9,115 @@
 
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="navbar">
-                <li class="nav-logo-item">
-<!--                    <h1>Logo</h1>-->
-                    <img src="/assets/images/IPASS-WMS-LOGO.png" alt="WarehouseManagementSystem Logo." width="75px">
-                </li>
-                <li class="nav-item">
-                    <a href="#">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a href="/dashboard">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/dev">Developer</a>
-                </li>
-<!--                <li class="navbar-right nav-item" >-->
-<!--                    <form action="">-->
-<!--                        <label for="searchBar" hidden="hidden">Search article</label>-->
-<!--                        <input id="searchBar" type="text" placeholder="Search...">-->
-<!--                        <button>Scan</button>-->
-<!--                    </form>-->
-<!--                </li>-->
 
-                <li class="navbar-right nav-item">
-                    <a id="logoutButton" href="">
-                        Sign out
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Stock Overview</h1>
-        <table id="overview-table">
-            <thead>
-                <tr>
-                    <th>
-                        Product Nr
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Manufacturer
-                    </th>
-                    <th>
-                        Category
-                    </th>
-                    <th>
-                        Price
-                    </th>
-                    <th>
-                        Barcode
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
+<dialog id="edit-stock-dialog">
+        <h2>Edit Stock</h2>
+        <form id="dialog-form">
+            <label for="stock-input">Amount</label>
+            <input type="number" name="stock" id="stock-input">
+            <input type="hidden" name="articleNumber" id="article-number-input">
+            <button type="submit" class="change-button dialog-button">Change</button>
+            <button type="submit" formmethod="dialog" class="close-button dialog-button">Close</button>
+        </form>
+</dialog>
 
-            </tbody>
-        </table>
-    </main>
+<header>
+    <nav>
+        <ul class="navbar">
+            <li class="nav-logo-item">
+                <!--                    <h1>Logo</h1>-->
+                <img src="/assets/images/IPASS-WMS-LOGO.png" alt="WarehouseManagementSystem Logo." width="75px">
+            </li>
+            <li class="nav-item active">
+                <a href="/overview.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/dev">Developer</a>
+            </li>
+            <!--                <li class="navbar-right nav-item" >-->
+            <!--                    <form action="">-->
+            <!--                        <label for="searchBar" hidden="hidden">Search article</label>-->
+            <!--                        <input id="searchBar" type="text" placeholder="Search...">-->
+            <!--                        <button>Scan</button>-->
+            <!--                    </form>-->
+            <!--                </li>-->
 
-    <template id="table-template">
-        <tr id="table-row">
-            <td class="product-number"></td>
-            <td class="product-name"></td>
-            <td class="product-manufacturer"></td>
-            <td class="product-category"></td>
-            <td class="product-price"></td>
-            <td class="product-barcode"></td>
+            <li class="navbar-right nav-item">
+                <a id="logoutButton" href="">
+                    Sign out
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Stock Overview</h1>
+    <table id="overview-table">
+        <thead>
+        <tr>
+            <th>
+                Product Nr
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Manufacturer
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Barcode
+            </th>
+            <th>
+                Stock
+            </th>
+            <th class="edit-stock"></th>
         </tr>
-    </template>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+</main>
+
+<template id="table-template">
+    <tr id="table-row">
+        <td class="product-number"></td>
+        <td class="product-name"></td>
+        <td class="product-manufacturer"></td>
+        <td class="product-category"></td>
+        <td class="product-price"></td>
+        <td class="product-barcode"></td>
+        <td class="product-stock"></td>
+        <td class="edit-stock">
+            <span></span>
+            <button onclick="">
+                <svg width="2vw" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"><title></title>
+                        <g id="Complete">
+                            <g id="edit">
+                                <g>
+                                    <path d="M20,16v4a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4H8" fill="none"
+                                          stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                          stroke-width="2"></path>
+                                    <polygon fill="none" points="12.5 15.8 22 6.2 17.8 2 8.3 11.5 8 16 12.5 15.8"
+                                             stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                             stroke-width="2"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </td>
+    </tr>
+</template>
 
 </body>
 </html>
