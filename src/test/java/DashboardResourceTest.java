@@ -1,4 +1,5 @@
-import nl.hu.ipass.viktorklijn.system.webservices.DashboardResource;
+import nl.hu.ipass.viktorklijn.system.auth.VerificationToken;
+import nl.hu.ipass.viktorklijn.system.webservices.ArticleResource;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +12,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DashboardResourceTest {
-    private DashboardResource dashboardResource;
+    private ArticleResource dashboardResource;
 
     @BeforeEach
     public void setUp() {
-        dashboardResource = new DashboardResource();
+        dashboardResource = new ArticleResource();
     }
 
     @Test
     public void testLoadDashboard_ReturnsArticles() {
+        Shop byJensen = new Shop(1, "byJensen");
+
         ArrayList<Article> articles = new ArrayList<>();
         Manufacturer manufacturer1 = new Manufacturer("Manufacturer 1", "Country 1", "email1@example.com");
         Manufacturer manufacturer2 = new Manufacturer("Manufacturer 2", "Country 2", "email2@example.com");
@@ -30,9 +33,10 @@ public class DashboardResourceTest {
         articles.add(new Article(1, "Article 1", "Description 1", manufacturer1, category1, 10.0, 123456));
         articles.add(new Article(2, "Article 2", "Description 2", manufacturer2, category2, 20.0, 654321));
         articles.add(new Article(3, "Article 3", "Description 3", manufacturer3, category3, 30.0, 987654));
-        Shop.setArticles(articles);
+        byJensen.setArticles(articles);
 
-        Response response = dashboardResource.loadDashboard();
+//        TODO: Fix test script by creating a token.
+        Response response = dashboardResource.getArticles(new VerificationToken());
 
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
         assertNotNull(response.getEntity());
