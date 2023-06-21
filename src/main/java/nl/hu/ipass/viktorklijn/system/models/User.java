@@ -1,10 +1,6 @@
 package nl.hu.ipass.viktorklijn.system.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import nl.hu.ipass.viktorklijn.system.webservices.DashboardResource;
-
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 public class User {
     private String username;
