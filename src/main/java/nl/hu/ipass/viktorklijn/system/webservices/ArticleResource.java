@@ -14,7 +14,7 @@ import java.util.*;
 
 import static nl.hu.ipass.viktorklijn.utils.JwtUtil.verifyToken;
 
-@Path("/dashboard")
+@Path("/article")
 public class ArticleResource {
 
     @POST
@@ -34,7 +34,7 @@ public class ArticleResource {
     }
 
     @POST
-    @Path("/update")
+    @Path("/stock/update")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
 //    @RolesAllowed("admin")

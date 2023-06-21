@@ -10,7 +10,7 @@ export default function openDialog(articleNumber, articleStock) {
 
     DIALOG.querySelector("#stock-input").value = articleStock;
     DIALOG.querySelector("#article-number-input").value = articleNumber;
-    DIALOG.querySelector(".change-button").addEventListener("click", ArticleService.updateArticle)
+    DIALOG.querySelector(".change-button").addEventListener("click", ArticleService.updateStock)
 
     DIALOG.showModal();
 }

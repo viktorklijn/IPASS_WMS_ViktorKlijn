@@ -6,13 +6,13 @@ export default class articleService {
      * @returns {Promise<array<Article>>}
      */
     static getArticles() {
-        const URL = `${baseURL}/dashboard/articles/`;
+        const URL = `${baseURL}/article/articles/`;
         return fetch(URL, {method: "POST", body: JSON.stringify({"token": sessionStorage.getItem("WMSToken")}), headers: {'Content-Type': 'application/json' }})
             .then((response) => response.json());
     }
 
-    static updateArticle() {
-        const URL = `${baseURL}/dashboard/update`;
+    static updateStock() {
+        const URL = `${baseURL}/stock/update`;
         const FORM = document.querySelector("#dialog-form");
         const FORMDATA = new FormData(FORM);
         let jsonData = {};
