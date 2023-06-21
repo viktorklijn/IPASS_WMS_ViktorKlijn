@@ -8,6 +8,7 @@ export default class Article {
      * @param {Category} category
      * @param {Number} price
      * @param {Number} barcode
+     * @param {Number} stock
      */
     constructor({
         articleNumber,
@@ -16,7 +17,8 @@ export default class Article {
         manufacturer,
         category,
         price,
-        barcode
+        barcode,
+        stock
     } = {}) {
         this.articleNumber = articleNumber;
         this.name = name;
@@ -25,5 +27,6 @@ export default class Article {
         this.category = category;
         this.price = price;
         this.barcode = barcode;
+        this.stock = stock;
     }
 }
