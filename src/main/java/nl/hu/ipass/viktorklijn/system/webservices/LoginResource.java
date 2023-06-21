@@ -33,12 +33,10 @@ public class LoginResource {
         try {
             Role role = User.validateUser(loginRequest.getUsername(), loginRequest.getPassword());
 
-            if (role == null) throw new IllegalArgumentException("No user found!");
-
             String token = createToken(loginRequest.getUsername(), role.getName());
 
             return Response.ok(new AbstractMap.SimpleEntry<>("JWT", token)).build();
-        } catch (JwtException | IllegalArgumentException e) {
+        } catch (JwtException | NullPointerException e) {
             return Response.status(Response.Status.UNAUTHORIZED).entity(e.getMessage()).build();
         }
     }

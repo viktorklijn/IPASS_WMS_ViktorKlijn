@@ -15,7 +15,7 @@ public class ContextListener implements ServletContextListener {
 
         @Override
     public void contextInitialized(ServletContextEvent sce) {
-        Shop s1 = new Shop("ByJensen");
+        Shop s1 = new Shop(1, "ByJensen");
         Manufacturer m1 = new Manufacturer("humdakin", "Denmark", "23975954");
         Category c1 = new Category("Meubels");
 
