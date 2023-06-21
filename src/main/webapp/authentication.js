@@ -2,9 +2,9 @@ import {verifyToken} from "./service/AuthService.js";
 
 const token = sessionStorage.getItem("WMSToken");
 
-let username;
-if (token) {
-    verifyToken(token)
+let username = null;
+if (token !== null) {
+    await verifyToken(token)
         .then((usernm) => {
             username = usernm;
         })
@@ -19,18 +19,18 @@ switch (location.pathname) {
         if (token === null) {
             location.assign("/index.html")
         }
-        // else {
-        //     if (!username) {
-        //         window.sessionStorage.clear();
-        //         location.assign("/index.html");
-        //     }
-        // }
+        else {
+            if (username === null) {
+                window.sessionStorage.clear();
+                location.assign("/index.html");
+            }
+        }
         break;
     case "":
     case "/":
     case "/index.html":
         if (token !== null) {
-            if (username) {
+            if (username !== null) {
                 location.assign("/overview.html")
                 window.sessionStorage.setItem("username", username);
             }
