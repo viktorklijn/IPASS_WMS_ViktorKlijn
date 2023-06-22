@@ -1,6 +1,8 @@
 package nl.hu.ipass.viktorklijn.system.models;
 
-public class Manufacturer {
+import java.io.Serializable;
+
+public class Manufacturer implements Serializable {
     private String name, country, email;
 
     public Manufacturer(String name, String country, String email) {

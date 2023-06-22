@@ -12,7 +12,7 @@ export default class articleService {
     }
 
     static updateStock() {
-        const URL = `${baseURL}/stock/update`;
+        const URL = `${baseURL}/article/stock/update`;
         const FORM = document.querySelector("#dialog-form");
         const FORMDATA = new FormData(FORM);
         let jsonData = {};
