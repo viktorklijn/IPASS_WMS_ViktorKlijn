@@ -1,8 +1,9 @@
 package nl.hu.ipass.viktorklijn.system.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable {
     private String username;
     private String email;
     private String password;
@@ -73,5 +74,13 @@ public class User {
 
     public Shop getShop() {
         return shop;
+    }
+
+    public static ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public static void setUsers(ArrayList<User> users) {
+        User.users = users;
     }
 }

@@ -1,6 +1,8 @@
 package nl.hu.ipass.viktorklijn.system.models;
 
-public class Role {
+import java.io.Serializable;
+
+public class Role implements Serializable {
     private String name;
     private int id;
 

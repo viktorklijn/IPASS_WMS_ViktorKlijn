@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop{
+public class Shop implements Serializable{
     private int id;
     private String name;
     private static ArrayList<Shop> shops = new ArrayList<>();
@@ -34,7 +34,7 @@ public class Shop{
         shops = newShops;
     }
 
-    public static Object getShops() {
+    public static ArrayList<Shop> getShops() {
         return shops;
     }
 

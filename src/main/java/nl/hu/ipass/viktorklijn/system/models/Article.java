@@ -1,6 +1,8 @@
 package nl.hu.ipass.viktorklijn.system.models;
 
-public class Article {
+import java.io.Serializable;
+
+public class Article implements Serializable {
     private int articleNumber;
     private String name;
     private String description;
