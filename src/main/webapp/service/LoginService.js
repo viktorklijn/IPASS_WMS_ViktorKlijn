@@ -1,10 +1,11 @@
 import {verifyToken} from "./AuthService.js";
+import {baseURL} from "../backendServerConfig.js";
 export function login() {
     let formData = new FormData(document.querySelector(".loginForm form"));
     let jsonBody = {};
 
     formData.forEach((value, key) => jsonBody[key] =  value);
-    fetch("/v1/login/authenticate",
+    fetch(`${baseURL}/login/authenticate`,
         {
             method: "POST",
             body: JSON.stringify(jsonBody),
@@ -23,6 +24,7 @@ export function login() {
 }
 
 export function logout() {
+    console.log("logout")
     window.sessionStorage.clear();
     location.assign("index.html");
 }

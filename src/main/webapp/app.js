@@ -1,17 +1,17 @@
 import './authentication.js';
-import {login, logout} from "./service/LoginService.js";
+import {login} from "./service/LoginService.js";
+import {logout} from "./service/LoginService.js";
 import './view/TableResource.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-    const LOGINBUTTON = document.getElementById("loginButton");
-    LOGINBUTTON.addEventListener("click", () => login());
+const LOGOUTBUTTON = document.getElementById("logoutButton");
+const LOGINBUTTON = document.getElementById("loginButton");
 
-})
-document.addEventListener("DOMContentLoaded", () => {
-    const LOGOUTBUTTON = document.getElementById("logoutButton");
+if (window.location.pathname === "/overview.html") {
     LOGOUTBUTTON.addEventListener("click", () => logout());
+} else {
+    document.addEventListener("DOMContentLoaded", () => {
+        LOGINBUTTON.addEventListener("click", () => login());
 
-})
-
-
+    })
+}
 

@@ -10,12 +10,13 @@ import java.util.ArrayList;
 
 @WebListener
 public class ContextListener implements ServletContextListener {
-    private static final String DATA_FILE = "C:\\Users\\vikto\\Desktop\\Projects\\IPASS-magazijn\\src\\main\\resources\\data.obj";
+//    private static final String DATA_FILE = "C:\\Users\\vikto\\Desktop\\Projects\\IPASS-magazijn\\src\\main\\resources\\data.obj";
+    private static final String DATA_FILE = "data.obj";
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        loadData();
-//        initializeData();
+        initializeData();
+//        loadData();
     }
 
     private void initializeData() {
